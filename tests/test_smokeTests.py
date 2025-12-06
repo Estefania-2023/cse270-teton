@@ -22,8 +22,7 @@ class TestSmokeTests():
     self.driver.quit()
   
   def test_smoke(self):
-    #Logo Header and Title
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
+    self.driver.get("https://estefania-2023.github.io/cse270-teton/index.html")
     self.driver.set_window_size(1369, 728)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
@@ -31,7 +30,6 @@ class TestSmokeTests():
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h1").text == "Teton Idaho"
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h2").text == "Chamber of Commerce"
     assert self.driver.title == "Teton Idaho CoC"
-    #Home Page - Spotlights and Join Feature
     elements = self.driver.find_elements(By.ID, "nopad")
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".main-spotlight")
@@ -43,7 +41,6 @@ class TestSmokeTests():
     elements = self.driver.find_elements(By.LINK_TEXT, "Join Us!")
     assert len(elements) > 0
     self.driver.find_element(By.LINK_TEXT, "Join Us!").click()
-    #Directory page
     self.driver.find_element(By.LINK_TEXT, "Directory").click()
     self.driver.find_element(By.ID, "directory-grid").click()
     self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").click()
@@ -51,7 +48,6 @@ class TestSmokeTests():
     self.driver.find_element(By.ID, "directory-list").click()
     self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
-    #Join page
     self.driver.find_element(By.LINK_TEXT, "Join").click()
     self.driver.find_element(By.NAME, "fname").click()
     elements = self.driver.find_elements(By.NAME, "fname")
@@ -72,7 +68,6 @@ class TestSmokeTests():
     self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").click()
     self.driver.find_element(By.CSS_SELECTOR, "fieldset").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").text == "Email"
-    #Admin page
     self.driver.find_element(By.LINK_TEXT, "Admin").click()
     self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").text == "Username:"
