@@ -46,9 +46,9 @@ jobs:
       uses: Eun/http-server-action@v1.0.11
       with:
         directory: .
-        port: https://estefania-2023.github.io/cse270-teton/
+        port: 8000
         index-files: |
-          ["index.html"]           
+          ["index.html", "index.htm"]           
     - name: Run tests
       run: |
         pytest
