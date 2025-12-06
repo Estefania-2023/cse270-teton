@@ -45,10 +45,10 @@ jobs:
     - name: Startup HTTP Server for pipeline tests
       uses: Eun/http-server-action@v1.0.11
       with:
-        directory: .
-        port: 8000
+        directory: teton/1.6
+        port: 5500
         index-files: |
-          ["index.html", "index.htm"]           
+          ["index.html"]           
     - name: Run tests
       run: |
         pytest
